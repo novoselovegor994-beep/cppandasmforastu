@@ -12,7 +12,7 @@ int main() {
 		ostatok = 0; // остаток от деления
 
 	int zapros;
-	cout << "Введите значение y"; cin >> y;
+	cout << "Введите значение y "; cin >> y;
 	__asm {
 		mov eax, y //загрузили x в регистр eax
 		mov ebx, eax // загрузили y в регистр ebx
@@ -41,18 +41,18 @@ int main() {
 		idiv ebx // eax частное ebx остаток
 
 		mov chast, eax // сохранили частное
-		mov ostatok, ebx // сохранили остаток
+		mov ostatok, edx // сохранили остаток
 	}
 	cout << "y = " << y << endl;
-	cout << "Результат деления : частное =" << chast << endl;
-	cout << "Остаток =" << ostatok << endl;
+	cout << "Результат деления : частное = " << chast << endl;
+	cout << "Остаток = " << ostatok << endl;
 	int chs1 = 3 * y - 2 * y * y;
-	int znm = 4 * y * y - 12 * y + 9;
-	int chast_cpp = chs1 / znm;
-	int ostatok_cpp = chs1 % znm;
-	cout << "Результаты на cpp:";
-	cout << "частнгое =" << chast_cpp << endl;
-	cout << "остаток =" << ostatok_cpp << endl;
+	int znmcpp = 4 * y * y - 12 * y + 9;
+	int chast_cpp = chs1 / znmcpp;
+	int ostatok_cpp = chs1 % znmcpp;
+	cout << "Результаты на cpp: ";
+	cout << "частное = " << chast_cpp << endl;
+	cout << "остаток = " << ostatok_cpp << endl;
 
 	cout << "\nСовпадение результатов: ";
 	if (chast == chast_cpp && ostatok == ostatok_cpp) {
