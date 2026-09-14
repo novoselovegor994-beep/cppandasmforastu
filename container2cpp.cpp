@@ -28,8 +28,8 @@ int main() {
 		int b = get<1>(t);
 		int c = get<2>(t);
 		cout << "(" << a << ", " << b << ", " << c << ") -> ";
+		int P = a + b + c;
 		if (a == b || a == c || b == c) {
-			int P = a + b + c;
 			cout << "Есть равные стороны, периметр = " << P << endl;
 		}
 		else {
@@ -39,6 +39,11 @@ int main() {
 			cout << "все стороны разные, S = " << fixed << setprecision(2) << S << "," << " Периметр равен = " << P << "\n";
 		}
 
+		int max_side = max({ a, b, c });
+		int min_side = min({ a, b, c });
+
+		double result = (double)P / (max_side - min_side);
+		cout << "4.1 результат деления периметра на разность максимума и минимума = " << fixed << setprecision(2) << result << endl;
 	}
-	return 0;	
+	return 0;
 }
