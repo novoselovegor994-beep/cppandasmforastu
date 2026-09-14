@@ -3,10 +3,11 @@
 #include <vector>
 #include <random>
 #include <iomanip>
+#include <algorithm>
 using namespace std;
 
 int main() {
-
+	setlocale(LC_ALL, "");
 	mt19937 rng(random_device{}());
 	uniform_int_distribution<int> dist(0, 99);
 
@@ -20,10 +21,10 @@ int main() {
 	vec.push_back(t2);
 	vec.push_back(t3);
 	vec.push_back(t4);
+	sort(vec.begin(), vec.end());
 	for (const auto& t : vec) {
 		cout << "(" << get<0>(t) << ", " << get<1>(t) << ")\n";
 	}
-
 	// генерация двух чисел в кортеже
 	
 
