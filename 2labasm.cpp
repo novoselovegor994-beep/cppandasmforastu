@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-	setlocale(LC_ALL, "Russian");
+	setlocale(LC_ALL, "Russian"); // установка русского языка
 	int y; // переменные
 	int chsl = 0, // числитель дроби
 		znm = 0; // знаменатель
@@ -12,7 +12,7 @@ int main() {
 		ostatok = 0; // остаток от деления
 
 	int zapros;
-	cout << "Введите значение y "; cin >> y;
+	cout << "Введите значение y "; cin >> y; // вводим значение y
 	__asm {
 		mov eax, y //загрузили x в регистр eax
 		mov ebx, eax // загрузили y в регистр ebx
@@ -43,10 +43,10 @@ int main() {
 		mov chast, eax // сохранили частное
 		mov ostatok, edx // сохранили остаток
 	}
-	cout << "y = " << y << endl;
+	cout << "y = " << y << endl; // выводим y
 	cout << "Результат деления : частное = " << chast << endl;
 	cout << "Остаток = " << ostatok << endl;
-	int chs1 = 3 * y - 2 * y * y;
+	int chs1 = 3 * y - 2 * y * y; // считаем на cpp выражение
 	int znmcpp = 4 * y * y - 12 * y + 9;
 	int chast_cpp = chs1 / znmcpp;
 	int ostatok_cpp = chs1 % znmcpp;
@@ -55,7 +55,7 @@ int main() {
 	cout << "остаток = " << ostatok_cpp << endl;
 
 	cout << "\nСовпадение результатов: ";
-	if (chast == chast_cpp && ostatok == ostatok_cpp) {
+	if (chast == chast_cpp && ostatok == ostatok_cpp) { // проверка результатов на совпадение
 		cout << "Ассемблер и C++ дали одинаковый результат" << endl;
 	}
 	else {
